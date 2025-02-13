@@ -6,13 +6,14 @@ name: Run Python Script Daily
 # or API.
 on:
   schedule:
-    - cron: "21 23 * * *"
+    - cron: "0 8 * * *"
   workflow_dispatch:
   
 jobs:
   run-script:
     runs-on: ubuntu-latest
     timeout-minutes: 2
+    environment: python_script
 
     env:  
       API_BODACC_BASE_URL: ${{ vars.API_BODACC_BASE_URL }}
