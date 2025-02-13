@@ -7,7 +7,7 @@ def send_email(filename, date):
     sender_password = os.getenv("EMAIL_FROM_PASSWORD")
     receiver_email = os.getenv("EMAIL_TO_ADRESS")
     subject = "Fichier Excel Bodacc"
-    body = f"Bonnnnnnnsoirrrr Paulllll HIHIHIHIHI,\n\n. Voici le fichier Excel contenant les enregistrements du BODACC du 2025-02-04./n/n Ouiiii elle a des biscuitssssss"
+    body = f"Bonjour,\n\n. Voici le fichier Excel contenant les enregistrements du BODACC du {date}"
 
     # Créer l'email
     msg = EmailMessage()
@@ -25,7 +25,7 @@ def send_email(filename, date):
 
     # Se connecter au serveur SMTP et envoyer l'email
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:  # Remplace par ton serveur SMTP si besoin
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
             server.starttls()  # Sécuriser la connexion
             server.login(sender_email, sender_password)
             server.send_message(msg)
