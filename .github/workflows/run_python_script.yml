@@ -6,7 +6,7 @@ name: Run Python Script Daily
 # or API.
 on:
   schedule:
-    - cron: "6 23 * * *"
+    - cron: "7 23 * * *"
   workflow_dispatch:
   
 jobs:
