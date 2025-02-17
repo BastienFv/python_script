@@ -1,11 +1,12 @@
 import pandas as pd
-from datetime import datetime
+from get_date import get_date
 from send_email import send_email
 
-today = datetime.today().strftime("%Y-%m-%d")  # Format YYYY-MM-DD
-filename = f"bodacc_{today}.xlsx"
 
-def save_to_excel(records):
+def save_to_excel(records, date):
+    today = get_date()
+    filename = f"bodacc_{today}.xlsx"
+
     if not records:
         print("Pas de nouveaux enregistrements aujourd'hui.")
         return
@@ -16,6 +17,6 @@ def save_to_excel(records):
     # Sauvegarder en fichier Excel
     df.to_excel(filename, index=False)
 
-    print(f"✅ Fichier Excel généré avec {len(records)} enregistrements : {filename}")
+    print(f"✅ Le fichier Excel a bien été généré.")
 
     send_email(filename=filename, date=today)

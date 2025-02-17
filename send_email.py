@@ -30,7 +30,7 @@ def send_email(filename, date):
             server.login(sender_email, sender_password)
             server.send_message(msg)
         
-        print(f"✅ Email envoyé à {receiver_email} avec la pièce jointe {filename} !")
+        print(f"✅ L'Email a bien été envoyé !")
     
     except Exception as e:
-        print(f"❌ Erreur lors de l'envoi de l'email : {e}")
+        print(f"❌ Erreur lors de l'envoi de l'email.")
