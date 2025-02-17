@@ -3,7 +3,7 @@ from get_date import get_date
 from send_email import send_email
 
 
-def save_to_excel(records, date):
+def save_to_excel(records):
     today = get_date()
     filename = f"bodacc_{today}.xlsx"
 
@@ -11,12 +11,16 @@ def save_to_excel(records, date):
         print("Pas de nouveaux enregistrements aujourd'hui.")
         return
     
-    # Convertir en DataFrame pandas
-    df = pd.DataFrame(records)
+    try:
+        # Convertir en DataFrame pandas
+        df = pd.DataFrame(records)
 
-    # Sauvegarder en fichier Excel
-    df.to_excel(filename, index=False)
+        # Sauvegarder en fichier Excel
+        df.to_excel(filename, index=False)
 
-    print(f"✅ Le fichier Excel a bien été généré.")
+        print(f"✅ Le fichier Excel a bien été généré.")
 
-    send_email(filename=filename, date=today)
+        send_email(filename=filename, date=today)
+    
+    except Exception as e:
+        print(f"❌ Erreur lors de la sauvegarde du fichier Excel: {e}")
