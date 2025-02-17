@@ -3,6 +3,9 @@ import os
 from email.message import EmailMessage
 
 def send_email(filename, date):
+    """
+    Ajout du fichier en PJ et envoie du mail à l'utilisateur
+    """
     sender_email = os.getenv("EMAIL_FROM_ADRESS")
     sender_password = os.getenv("EMAIL_FROM_PASSWORD")
     receiver_email = os.getenv("EMAIL_TO_ADRESS")

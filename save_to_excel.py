@@ -4,6 +4,9 @@ from send_email import send_email
 
 
 def save_to_excel(records):
+    """
+    Génére un fichier excel
+    """
     today = get_date()
     filename = f"bodacc_{today}.xlsx"
 
